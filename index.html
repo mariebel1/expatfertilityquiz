@@ -718,7 +718,7 @@
        Fill these in before going live.
     ─────────────────────────────────────────────── */
     const CLICKFUNNELS_API_KEY      = "YOUR_API_KEY_HERE";
-    const CLICKFUNNELS_WORKSPACE_ID = "YOUR_WORKSPACE_ID_HERE"; // numeric string, e.g. "12345"
+    const CLICKFUNNELS_WORKSPACE_ID = "YOUR_WORKSPACE_ID_HERE"; // numeric string, e.g. "12345"const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbzA_nHcPhyFG4wMtQF8xRhEt7bHMns7ssjgkIEvH4pEjeOdrvUVb51Fi7ppDbLcUPE/exec";
 
     /* ───────────────────────────────────────────────
        FERTILITY PROFILES
@@ -1083,7 +1083,7 @@
     /* ───────────────────────────────────────────────
        RENDER RESULTS
     ─────────────────────────────────────────────── */
-    function showResults(profileId) {
+    async function sendToGoogleSheets(firstName,email,profileId){const payload={firstName,email,profileId,profileName:PROFILES[profileId].name,q1:QUESTIONS[0].options[answers[0][0]]?.text||"",q2:QUESTIONS[1].options[answers[1][0]]?.text||"",q3:QUESTIONS[2].options[answers[2][0]]?.text||"",q4:QUESTIONS[3].options[answers[3][0]]?.text||"",q5:QUESTIONS[4].options[answers[4][0]]?.text||"",q6:QUESTIONS[5].options[answers[5][0]]?.text||"",q7:QUESTIONS[6].options[answers[6][0]]?.text||"",q8:QUESTIONS[7].options[answers[7][0]]?.text||"",q9:QUESTIONS[8].options[answers[8][0]]?.text||"",q10:QUESTIONS[9].options[answers[9][0]]?.text||""};await fetch(GOOGLE_SHEETS_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)}).catch(e=>console.warn("[Quiz] Sheets:",e));}
       const p = PROFILES[profileId];
 
       document.getElementById('result-profile-name').textContent = p.name;
