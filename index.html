@@ -1030,7 +1030,7 @@
       btn.innerHTML = '<span class="dots"><span></span><span></span><span></span></span>&nbsp; Sending…';
 
       try {
-        await sendToClickFunnels(firstName, email, profileId);
+        await sendToClickFunnels(firstName, email, profileId);      await sendToGoogleSheets(firstName, email, profileId);
       } catch (err) {
         console.error('[Quiz] ClickFunnels submission error:', err);
         // Fail gracefully — never block the user from seeing results
